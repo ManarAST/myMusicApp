@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">my Music App</string>
+
+    <string name="tracks">Tracks</string>
+
+    <string name="favorite">Favorites</string>
+
+    <string name="welcome">Hi, This ie my first app that can organize Audio lists .. I hope to give it more improvement in future :)
+
+    Thanks for stoping by</string>
+
+
+</resources>

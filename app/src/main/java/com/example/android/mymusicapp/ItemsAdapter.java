@@ -37,7 +37,7 @@ public class ItemsAdapter extends ArrayAdapter<items> {
         items currentItems = getItem(position);
 
 
-        TextView songOrPlaylistName =  listItemView.findViewById(R.id.songName);
+        TextView songOrPlaylistName = listItemView.findViewById(R.id.songName);
         songOrPlaylistName.setText(currentItems.getmSongName());
 
 

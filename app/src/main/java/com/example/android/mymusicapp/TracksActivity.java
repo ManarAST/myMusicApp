@@ -1,7 +1,9 @@
 package com.example.android.mymusicapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,7 +16,19 @@ public class TracksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.track_list);
 
-        TextView tracksTitle = (TextView) findViewById(R.id.title);
+        TextView tracksToFavorites =  findViewById(R.id.toOtherActivityButton);
+        tracksToFavorites.setText(R.string.toFavorites);
+
+
+        tracksToFavorites.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent favoritesIntent = new Intent(TracksActivity.this, FavoritesActivity.class);
+                startActivity(favoritesIntent);
+            }
+        });
 
 
         ArrayList<items> items = new ArrayList<>();
@@ -35,9 +49,9 @@ public class TracksActivity extends AppCompatActivity {
         items.add(new items("Wide Awake","Katy Perry"));
 
 
-        itemsAdapter adapter = new itemsAdapter(this, items);
+        ItemsAdapter adapter = new ItemsAdapter(this, items);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView =  findViewById(R.id.list);
 
         listView.setAdapter(adapter);
     }

@@ -1,7 +1,9 @@
 package com.example.android.mymusicapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,7 +16,21 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.track_list);
 
-        TextView favoritesTitle = (TextView) findViewById(R.id.title);
+        TextView favoritesToTracks = findViewById(R.id.toOtherActivityButton);
+        favoritesToTracks.setText(R.string.toTracks);
+
+
+        favoritesToTracks.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent tracksIntent = new Intent(FavoritesActivity.this, TracksActivity.class);
+                startActivity(tracksIntent);
+            }
+        });
+
+
 
 
         ArrayList<items> items = new ArrayList<>();
@@ -29,9 +45,9 @@ public class FavoritesActivity extends AppCompatActivity {
         items.add(new items("Fight Song","Rachel Platten"));
 
 
-        itemsAdapter adapter = new itemsAdapter(this, items);
+        ItemsAdapter adapter = new ItemsAdapter(this, items);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView =  findViewById(R.id.list);
 
         listView.setAdapter(adapter);
     }

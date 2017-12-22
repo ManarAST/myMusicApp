@@ -11,13 +11,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by manar on 22/12/2017.
- */
 
-public class itemsAdapter extends ArrayAdapter<items> {
+public class ItemsAdapter extends ArrayAdapter<items> {
 
-    public itemsAdapter(Activity context, ArrayList<items>item){
+    public ItemsAdapter(Activity context, ArrayList<items>item){
         super(context,0,item);
     }
 
@@ -40,11 +37,11 @@ public class itemsAdapter extends ArrayAdapter<items> {
         items currentItems = getItem(position);
 
 
-        TextView songOrPlaylistName = (TextView) listItemView.findViewById(R.id.songName);
+        TextView songOrPlaylistName =  listItemView.findViewById(R.id.songName);
         songOrPlaylistName.setText(currentItems.getmSongName());
 
 
-        TextView defaultTextView = (TextView) listItemView.findViewById(R.id.artistName);
+        TextView defaultTextView =  listItemView.findViewById(R.id.artistName);
         defaultTextView.setText(currentItems.getmArtistName());
 
 
